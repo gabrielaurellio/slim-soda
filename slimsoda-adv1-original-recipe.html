@@ -870,4 +870,27 @@ ol.steps li::before{content:counter(st);position:absolute;left:0;top:8px;width:3
 })();
 </script>
 
+<!-- Meta Pixel — deferred for performance -->
+<script>
+(function(){
+  var loaded=false;
+  function loadPixel(){
+    if(loaded)return;loaded=true;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','2465686880525923');
+    fbq('track','PageView');
+  }
+  window.addEventListener('load',function(){setTimeout(loadPixel,3500);});
+  ['mousedown','touchstart','keydown','scroll'].forEach(function(e){
+    document.addEventListener(e,function h(){document.removeEventListener(e,h);loadPixel();});
+  });
+})();
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2465686880525923&ev=PageView&noscript=1"/></noscript>
+
 </body></html>
